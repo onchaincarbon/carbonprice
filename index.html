@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Cryptocurrency Price Information</h2>
+    <div id="price"></div>
+
+    <script>
+        fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('price').textContent = 'Bitcoin price: $' + data.bitcoin.usd;
+        })
+        .catch(error => console.error(error))
+    </script>
+
+</body>
+</html>
